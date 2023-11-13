@@ -1,0 +1,14 @@
+[
+  {"id":1, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":2, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":3, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":4, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":5, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":6, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":7, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":8, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":9, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":10, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":11, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"},
+  {"id":12, "first_name":"Lionel", "last_name":"Messi", "club":"PSG", "position":"Forward", "avatar":"/assets/images/messi.jpg", "price":"35"}
+]

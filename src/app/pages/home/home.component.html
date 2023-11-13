@@ -1,0 +1,7 @@
+<div>
+  @for (user of users(); track user.id) {
+    <p>{{ user.id }}</p>
+  }
+
+  @empty { <p>Not user found!</p>}
+</div>
