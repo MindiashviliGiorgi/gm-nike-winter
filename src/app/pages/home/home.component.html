@@ -1,7 +1,10 @@
-<div>
-  @for (user of users(); track user.id) {
-    <p>{{ user.id }}</p>
-  }
-
-  @empty { <p>Not user found!</p>}
+<app-header></app-header>
+<div class="home-page-main">
+  <div class="page-welcome"></div>
 </div>
+<!-- <div>
+  @for (user of users(); track user.id) {
+    <p>{{ user.first_name }}</p>
+  }
+  @empty { <p>User not found</p> }
+</div> -->

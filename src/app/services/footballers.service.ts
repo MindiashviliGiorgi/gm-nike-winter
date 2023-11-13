@@ -6,12 +6,5 @@ import { HttpClientModule } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FootballersService {
-  private jsonUrl = '/assets/footballer-data.json';
-
-  constructor(private http : HttpClient) { }
-
-  getAllFootballer() {  
-    return this.http.get(this.jsonUrl)
-  }
 
 }
