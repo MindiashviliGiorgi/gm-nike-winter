@@ -8,7 +8,7 @@
   background-color: #fff;
   .header-left {
     h3 {
-      color: #0064ae;
+      color: #100f1f;
       font-size: 30px;
       font-weight: 500;
       cursor: pointer;
@@ -24,7 +24,7 @@
         list-style: none;
         a {
           text-decoration: none;
-          color: #0064ae;
+          color: #100f1f;
           font-size: 25px;
           font-weight: 500;
           cursor: pointer;
@@ -39,7 +39,7 @@
             left: 0;
             width: 0%;
             height: 2.5px;
-            background-color: #0064ae;
+            background-color: #100f1f;
             transition: 0.3s;
           }
           &:hover::after {
