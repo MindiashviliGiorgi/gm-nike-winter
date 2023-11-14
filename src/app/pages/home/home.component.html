@@ -53,9 +53,10 @@
       <option value="150">100M - 150M</option>
       <option value="200">150M - 200M</option>
     </select>
+    <button (click)="refreshTeam()">Refresh your team</button>
   </div>
   <div class="footballers-list">
-    @for (user of users(); track user.id) {
+    @for (user of users | paginate:{ itemsPerPage: pageSize, currentPage: page }; track user.id) {
       <div class="container">
         <div class="cont-left">
           <div class="name">
@@ -71,7 +72,8 @@
             <p>Price : {{ user.price + 'M' }}</p>
           </div>
           <div class="btn">
-            <button>Add in team</button>
+            <button (click)="addUserInTeam(user)">Add player</button>
+            <button (click)="removeFromTeam(user)">Remove player</button>
           </div>
         </div>
         <div class="cont-right">
@@ -80,5 +82,8 @@
       </div>
     }
     @empty { <h1>User not found</h1> }
+  </div>
+  <div class="pagination-system">
+    <pagination-controls (pageChange)="page = $event" />
   </div>
 </div>

@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FootballersService {
+
 
 }
