@@ -57,7 +57,26 @@
   <div class="footballers-list">
     @for (user of users(); track user.id) {
       <div class="container">
-        
+        <div class="cont-left">
+          <div class="name">
+            <h1>{{ user.first_name + ' ' + user.last_name}}</h1>
+          </div>
+          <div class="age">
+            <p>Age : {{ user.age }}</p>
+          </div>
+          <div class="position">
+            <p>Position : {{ user.position }}</p>
+          </div>
+          <div class="price">
+            <p>Price : {{ user.price + 'M' }}</p>
+          </div>
+          <div class="btn">
+            <button>Add in team</button>
+          </div>
+        </div>
+        <div class="cont-right">
+          <img src="{{ user.avatar }}">
+        </div>
       </div>
     }
     @empty { <h1>User not found</h1> }

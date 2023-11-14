@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from "../../components/header/header.component";
-import { FootballersService } from '../../services/footballers.service';
 
 interface UserInterface {
   id:string;
@@ -26,9 +25,13 @@ export class HomeComponent {
   users = signal<UserInterface[]>([]);
 
   ngOnInit() {
-    fetch('/assets/footballer-data.json')
+    fetch('/assets/data.json')
     .then(resp => resp.json())
     .then(this.users.set)
   }
+
+
+
+
 
 }
