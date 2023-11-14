@@ -1,10 +1,12 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from "../../components/header/header.component";
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 interface Player {
+  position: any;
   id: string;
   first_name: string;
   last_name: string;
@@ -21,7 +23,8 @@ interface Player {
     imports: [CommonModule, 
       HttpClientModule, 
       HeaderComponent, 
-      NgxPaginationModule
+      NgxPaginationModule,
+      FormsModule
     ]
 })
 export class HomeComponent implements OnInit{
@@ -47,8 +50,7 @@ export class HomeComponent implements OnInit{
 
   refreshTeam() {
     localStorage.clear();
-  }
-
+  };
 
   addUserInTeam(user : Player) {
     // create team array in local storage
@@ -69,7 +71,7 @@ export class HomeComponent implements OnInit{
     // setItem to teamplayers as a team
     localStorage.setItem('teamPlayers', JSON.stringify(team));
     this.yourTeam = team;
-  }
+  };
 
   removeFromTeam(user: Player) {
     // create team array in local storage
@@ -83,6 +85,26 @@ export class HomeComponent implements OnInit{
       localStorage.setItem('teamPlayers', JSON.stringify(team));
       this.yourTeam = team;
     }
-  }
+  };
   
+
+  // search system
+  searchPosition: string = '';
+  searchAge: string = '';
+  searchPrice: string = '';
+  seachName: string = '';
+  filteredPlayers: Player[] = [];
+  paginationIs : boolean = true;
+
+  searchPositionChange : EventEmitter<string> = new EventEmitter<string>();
+  searchPlayerPosition() {
+    this.pageSize = this.searchPosition.length > 0 ? 30 : 10;
+    this.searchPositionChange.emit(this.searchPosition);
+  }
+
+  searchAgeChange : EventEmitter<string> = new EventEmitter<string>();
+  searchPlayerAge() {
+    this.searchAgeChange.emit(this.searchAge)
+  }
+
 }
