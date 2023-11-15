@@ -9,7 +9,9 @@
     </div>
   </div>
   <div class="search-system">
-    <input type="search" placeholder="Search..." style="width: 200px;">
+    <input type="search" placeholder="Search by last name" style="width: 230px;"
+      [(ngModel)]="searchName" (input)="searchPlayerName()"
+    >
     <!-- position -->
     <select [(ngModel)]="searchPosition" (input)="searchPlayerPosition()">
       <option value="">Position</option>
@@ -45,51 +47,43 @@
       <option value="39">39</option>
       <option value="40">40</option>
     </select>
-    <!-- price -->
-    <select>
-      <option value="">Price </option>
-      <option value="50">20M - 50M</option>
-      <option value="100">50M - 100M</option>
-      <option value="150">100M - 150M</option>
-      <option value="200">150M - 200M</option>
-    </select>
     <button (click)="refreshTeam()">Refresh your team</button>
   </div>
   <div class="footballers-list">
     @for (user of users | paginate:{ itemsPerPage: pageSize, currentPage: page }; track user.id) {
       @if (searchPosition === '' || user.position.includes(searchPosition)) {
         @if (searchAge === '' || user.age.includes(searchAge)) {
-          <div class="container">
-            <div class="cont-left">
-              <div class="name">
-                <h1>{{ user.first_name + ' ' + user.last_name}}</h1>
+          @if (searchName === '' || user.last_name.toLowerCase().includes(searchName)) {
+            <div class="container">
+              <div class="cont-left">
+                <div class="name">
+                  <h1>{{ user.first_name + ' ' + user.last_name}}</h1>
+                </div>
+                <div class="age">
+                  <p>Age : {{ user.age }}</p>
+                </div>
+                <div class="position">
+                  <p>Position : {{ user.position }}</p>
+                </div>
+                <div class="price">
+                  <p>Price : {{ user.price + 'M' }}</p>
+                </div>
+                <div class="btn">
+                  <button (click)="addUserInTeam(user)">Add player</button>
+                  <button (click)="removeFromTeam(user)">Remove player</button>
+                </div>
               </div>
-              <div class="age">
-                <p>Age : {{ user.age }}</p>
-              </div>
-              <div class="position">
-                <p>Position : {{ user.position }}</p>
-              </div>
-              <div class="price">
-                <p>Price : {{ user.price + 'M' }}</p>
-              </div>
-              <div class="btn">
-                <button (click)="addUserInTeam(user)">Add player</button>
-                <button (click)="removeFromTeam(user)">Remove player</button>
+              <div class="cont-right">
+                <img src="{{ user.avatar }}">
               </div>
             </div>
-            <div class="cont-right">
-              <img src="{{ user.avatar }}">
-            </div>
-          </div>
+          }
         }
       }
     }
     @empty { <h1>User not found</h1> }
   </div>
   <div class="pagination-system">
-    @if (paginationIs) {
-      <pagination-controls (pageChange)="page = $event" />
-    }
+    <pagination-controls (pageChange)="page = $event" />
   </div>
 </div>

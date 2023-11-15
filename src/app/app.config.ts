@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
+import { HomeModule } from './pages/home/home.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration()]

@@ -17,15 +17,9 @@ interface Player {
 
 @Component({
     selector: 'app-home',
-    standalone: true,
+    standalone: false,
     templateUrl: './home.component.html',
-    styleUrl: './home.component.scss',
-    imports: [CommonModule, 
-      HttpClientModule, 
-      HeaderComponent, 
-      NgxPaginationModule,
-      FormsModule
-    ]
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit{
   added: boolean = false;
@@ -91,20 +85,37 @@ export class HomeComponent implements OnInit{
   // search system
   searchPosition: string = '';
   searchAge: string = '';
-  searchPrice: string = '';
-  seachName: string = '';
+  searchName: string = '';
   filteredPlayers: Player[] = [];
-  paginationIs : boolean = true;
 
   searchPositionChange : EventEmitter<string> = new EventEmitter<string>();
   searchPlayerPosition() {
-    this.pageSize = this.searchPosition.length > 0 ? 30 : 10;
+    if (this.searchPosition.includes('Goalkeeper')) {
+      this.pageSize = 10;
+    } else{
+      this.pageSize = 100;
+    }
     this.searchPositionChange.emit(this.searchPosition);
   }
 
   searchAgeChange : EventEmitter<string> = new EventEmitter<string>();
   searchPlayerAge() {
+    if (this.searchAge.includes('18')) {
+      this.pageSize = 10;
+    } else {
+      this.pageSize = 100;
+    }
     this.searchAgeChange.emit(this.searchAge)
+  }
+
+  searchNameChange : EventEmitter<string> = new EventEmitter<string>();
+  searchPlayerName() {
+    if (this.searchName.length > 0) {
+      this.pageSize = 100;
+    } else {
+      this.pageSize = 10;
+    }
+    this.searchNameChange.emit(this.searchName)
   }
 
 }
